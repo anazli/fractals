@@ -17,7 +17,7 @@ int main()
     int height = 600;
     int maxIterations = 255;
     int maxColor = 255;
-    complex<double> C(0.355534, -0.337292);
+    complex<double> C(0.355, 0.355);
 
     //mandelbrot_set(width, height, maxIterations, maxColor);
     julia_set(width, height, maxIterations, maxColor, C);
@@ -62,7 +62,7 @@ void julia_set(int width, int height, int maxIter, int maxColor, const complex<d
     {
         for(int j = 0 ; j < height ; ++j)
         {
-            complex<double> Z((double)i/width - 0.5, (double)j/height - 0.3);
+            complex<double> Z((double)i/width - 0.5, (double)j/height - 0.5);
             int iterations = 0;
 
             while(abs(Z) < 4.0 && iterations < maxIter)
@@ -71,7 +71,7 @@ void julia_set(int width, int height, int maxIter, int maxColor, const complex<d
                 iterations++;
             }
             if(iterations < maxIter)
-                out << 255 * iterations/maxIter << " " << '0' << " " << '0' << endl;
+                out << '0' << " " << 255*iterations/maxIter << " " << '0' << endl;
             else
                 out << '0' << " " << '0' << " " << '0' << endl;
         }
